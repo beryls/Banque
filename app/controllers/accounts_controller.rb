@@ -7,6 +7,10 @@ class AccountsController < ApplicationController
     end
   end
 
+  def new
+    @account = Account.new
+  end
+
   def create
     account = Account.create(name: params[:name])
     respond_to do |format|
