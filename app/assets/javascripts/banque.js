@@ -15,9 +15,14 @@ var Banque = {
     $('#new-account').click(function() {
       Banque.toAndFromAction();
       Banque.newAccountForm();
+      $('.actions').submit(function() {
+        Banque.makeNewAccount();
+      })
       // append new account form to index page
     });
   },
+
+
 
   makeDeposit: function() {
     $('#deposit').click(function() {
@@ -43,13 +48,18 @@ var Banque = {
     $.ajax({
       url: "/accounts/new", type: "get", dataType: "script"
     })
-  }
+  },
 
-  // makeNewAccount: function() {
-  //   $.ajax({
-  //     url: "/accounts/create", type: "post", dataType: "script"
-  //   })
-  // }
+  makeNewAccount: function() {
+    $.ajax({
+      url: "/accounts/create",
+      type: "post",
+      dataType: "json",
+      data: {'name': name,
+                'balance': balance }
+    }).done(function(data) {
+    });
+  }
 }
 
 
