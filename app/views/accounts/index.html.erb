@@ -4,11 +4,16 @@
   <div id="activity-container">
     <div id="accounts-field">
       <h3>Accounts:</h3>
+      <table id="accounts">
+        <%= render 'accounts' %>
+      </table>
     </div>
+    <div id="form"></div>
   </div>
 
   <br/>
-  <button id="deposit">Make a deposit</button>
+  <button id="back-to-main">Back to Accounts</button>
+  <button id="deposit">Make a Deposit</button>
   <button id="withdraw">Withdraw or Transfer</button>
   <button id="new-account">Add an account</button>
 </div>

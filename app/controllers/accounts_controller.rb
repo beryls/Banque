@@ -1,9 +1,9 @@
 class AccountsController < ApplicationController
   def index
-    accounts = Account.all
+    @accounts = Account.all
     respond_to do |format|
       format.html
-      format.json { render json: accounts.to_json }
+      format.json { render json: @accounts }
     end
   end
 
@@ -12,9 +12,7 @@ class AccountsController < ApplicationController
   end
 
   def create
-    account = Account.create(name: params[:name])
-    respond_to do |format|
-      format.json { render json: task.to_json }
-    end
+    account = Account.create(params[:account])
+    @accounts = Account.all
   end
 end

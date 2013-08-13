@@ -1,5 +1,5 @@
-<%= form_for @account do |f| %>
-  <%= f.label :name %>
+<%= form_for(@account, remote: true) do |f| %>
+  <%= f.label :name %><br />
   <%= f.text_field :name %>
-  <%= f.submit %>
+  <div id="create-account"><%= f.submit %></div>
 <% end %>
