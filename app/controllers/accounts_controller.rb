@@ -12,7 +12,10 @@ class AccountsController < ApplicationController
   end
 
   def create
-    account = Account.create(params[:account])
-    @accounts = Account.all
+    @account = Account.create(params[:account])
+    respond_to do |format|
+      format.js {}
+    end
+    #@accounts = Account.all
   end
 end
