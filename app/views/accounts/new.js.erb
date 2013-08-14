@@ -1,6 +1,6 @@
 $('#form').html("<%= j render 'form' %>").show();
 
 $('#back-to-main').click(function() {
-  Banque.toAndFromAction();
+  Banque.goToMain();
   $('#form').hide();
 });

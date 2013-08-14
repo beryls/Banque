@@ -1,6 +1,13 @@
 var Banque = {
-  hideBackToMain: function() {
+  goToMain: function() {
     $('#back-to-main').hide();
+    $('#accounts-field').show();
+    $('#new-account').show();
+    $('#deposit').show();
+    $('#withdraw').show();
+    $.ajax({
+      url: "/accounts", type: "get", dataType: "script"
+    })
   },
 
   // goBackToMain: function() {
@@ -9,17 +16,17 @@ var Banque = {
   //   });
   // },
 
-  toAndFromAction: function() {
-    $('#accounts-field').toggle();
-    $('#new-account').toggle();
-    $('#deposit').toggle();
-    $('#withdraw').toggle();
-    $('#back-to-main').toggle();
+  toAction: function() {
+    $('#accounts-field').hide();
+    $('#new-account').hide();
+    $('#deposit').hide();
+    $('#withdraw').hide();
+    $('#back-to-main').show();
   },
 
   newAccount: function() {
     $('#new-account').click(function() {
-      Banque.toAndFromAction();
+      Banque.toAction();
       Banque.newAccountForm();
       // append new account form to index page
     });
@@ -27,14 +34,14 @@ var Banque = {
 
   makeDeposit: function() {
     $('#deposit').click(function() {
-      Banque.toAndFromAction();
+      Banque.toAction();
       // append deposit form to index page
     });
   },
 
   makeWithdrawal: function() {
     $('#withdraw').click(function() {
-      Banque.toAndFromAction();
+      Banque.toAction();
       // append withdrawal/transfer form to index page
     });
   },
@@ -54,6 +61,6 @@ var Banque = {
 
 
 window.onload = function() {
-  Banque.hideBackToMain();
+  Banque.goToMain();
   Banque.buttonFunctions();
 }
